@@ -14,7 +14,7 @@ class VideoChannelsNotifier extends _$VideoChannelsNotifier {
   }
 
   Future<List<ChannelInfo>> _fetchChannels() async {
-    final repository = ref.read(videoRepositoryProvider);
+    final repository = await ref.read(videoRepositoryProvider.future);
     return await repository.fetchVideoChannels();
   }
 
@@ -32,7 +32,7 @@ class VideoStreamsNotifier extends _$VideoStreamsNotifier {
   }
 
   Future<List<StreamInfo>> _fetchVideoStreams() async {
-    final repository = ref.read(videoRepositoryProvider);
+    final repository = await ref.read(videoRepositoryProvider.future);
     return await repository.fetchVideoStreams();
   }
 
